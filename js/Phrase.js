@@ -20,10 +20,12 @@ class Phrase {
             createli.innerHTML = selected;
 
             if (selected === ' ') {
+                createli.classList.add("hide");
                 createli.classList.add("space");
             } else {
-                createli.classList.add("letter");
                 createli.classList.add("hide");
+                createli.classList.add("letter");
+                createli.classList.add(selected);
             };
 
         });
