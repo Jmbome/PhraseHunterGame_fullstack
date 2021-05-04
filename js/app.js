@@ -9,3 +9,4 @@ botton.addEventListener('click',e =>{
     game.startGame();
 })
 
+game.activePhrase.checkLetter('a')
