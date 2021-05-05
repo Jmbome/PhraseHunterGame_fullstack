@@ -60,13 +60,13 @@ checkForWin() {
 * Checks if player has remaining lives and ends game if player is out
 */
 removeLife() {
-    const hearts = document.querySelector(".tries img");
+    const hearts = document.querySelector("img[src='images/liveHeart.png']");
     hearts.setAttribute("src", "images/lostHeart.png");
     this.missed++;
     if (this.missed === 5) {
         this.gameOver();
       }
-     
+    
 };
 
 
@@ -80,7 +80,7 @@ gameOver(gameWon) {
         overlay.style.display = "flex";
 
         if(gameWon) {
-            gameOverMsg.textContent = "Congratulations! Great Guess!";
+            gameOverMsg.textContent = "Congratulations! You Win!";
             overlay.className = "win";
             button.textContent = "Play again";
             this.resetGame();
@@ -93,4 +93,30 @@ gameOver(gameWon) {
        };
 };
  
+
+/**
+* Handles onscreen keyboard button clicks
+* @param (HTMLButtonElement) button - The clicked button element
+*/
+handleInteraction(button) {
+    button.disabled=true;
+    let choosenKey=this.activePhrase.checkLetter(button.textContent)
+   
+    if (choosenKey) {
+        this.activePhrase.showMatchedLetter(button.textContent);
+        button.classList.add("chosen");
+
+    };
+
+    if (this.checkForWin()) {
+        this.gameOver(true);
+    
+} else {   
+    button.classList.add("wrong");
+    this.removeLife();
+};
+
+} 
+
+
 }

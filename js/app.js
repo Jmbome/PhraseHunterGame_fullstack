@@ -9,3 +9,12 @@ button.addEventListener('click',e =>{
     game.startGame();
 })
 
+
+const keys= document.getElementById("qwerty");
+
+keys.addEventListener("click", (key) => {
+    const buttonClicked = key.target;
+    if (buttonClicked.tagName === 'BUTTON') {
+    game.handleInteraction(key.target)
+    }
+});
