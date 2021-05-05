@@ -21,7 +21,7 @@ class Game{
     //Gets random phrases from phrases list 
     getRandomPhrase() {
         let randNum = Math.floor(Math.random() * this.phrases.length);
-        let randPhrase = this.phrases[randNum];
+        const randPhrase = this.phrases[randNum];
         return randPhrase;
     };
 
@@ -31,8 +31,8 @@ class Game{
 * Begins game by selecting a random phrase and displaying it to user
 */
 startGame(){
-    let overlay = document.getElementById('overlay');
-    overlay.style.display = 'none';
+    let overlayDisplay = document.getElementById('overlay');
+    overlayDisplay.style.display = 'none';
 
     this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
@@ -66,6 +66,7 @@ removeLife() {
     if (this.missed === 5) {
         this.gameOver();
       }
+     
 };
 
 
@@ -76,10 +77,10 @@ removeLife() {
 gameOver(gameWon) {
     const overlay = document.getElementById("overlay");
         const gameOverMsg = document.getElementById("game-over-message");
-        startScreen.style.display = "";
+        overlay.style.display = "flex";
 
         if(gameWon) {
-            gameOverMsg.textContent = `Congratulations! Great Guess ${0x1F600}!`;
+            gameOverMsg.textContent = "Congratulations! Great Guess!";
             overlay.className = "win";
             button.textContent = "Play again";
             this.resetGame();
