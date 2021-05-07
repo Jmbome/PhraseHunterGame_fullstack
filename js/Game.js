@@ -106,11 +106,9 @@ handleInteraction(button) {
         this.activePhrase.showMatchedLetter(button.textContent);
         button.classList.add("chosen");
 
-    };
-
     if (this.checkForWin()) {
         this.gameOver(true);
-    
+    };
 } else if(!choosenKey) {   
     button.classList.add("wrong");
     this.removeLife();
