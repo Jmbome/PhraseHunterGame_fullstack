@@ -45,9 +45,10 @@ startGame(){
 won
 */
 checkForWin() {
-    const hiddenLetters = document.querySelectorAll(".hide");
+    const letterList=document.querySelectorAll('.letter');
+    const showList=document.querySelectorAll('.show');
 
-    if (hiddenLetters.length === 0) {
+    if (letterList.length===showList.length) {
       return true;
     } else {
       return false;
@@ -86,7 +87,7 @@ gameOver(gameWon) {
             this.resetGame();
             
         } else {
-            gameOverMsg.textContent = "Sorry, better luck next time!";
+            gameOverMsg.textContent = "Sorry You lose, better luck next time!";
             overlay.className = "lose";
             button.textContent = "Try again";
             this.resetGame();
@@ -115,6 +116,28 @@ handleInteraction(button) {
 };
 
 } 
+
+// Resets the game when it is over
+
+resetGame() {
+    const ulList = document.querySelectorAll("#phrase ul li");
+    for (let i = 0; i <ulList.length; i++) {
+      ulList[i].remove();
+    }
+
+    const buttons = document.querySelectorAll("button");
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = false;
+      buttons[i].classList.remove("wrong");
+      buttons[i].classList.remove("chosen");
+      buttons[i].classList.add("key");
+    }
+    const hearts = document.querySelectorAll(".tries img");
+    for (let i = 0; i < hearts.length; i++) {
+      hearts[i].src = "images/liveHeart.png";
+    }
+  }
+
 
 
 }

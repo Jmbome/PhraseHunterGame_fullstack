@@ -50,7 +50,6 @@ checkLetter(letter){
 */
 showMatchedLetter(letter) {
     const display = document.querySelectorAll('.phrase, li');
-    console.log(display);
         for (let i = 0; i < display.length; i ++) {
         if (display[i].innerHTML === letter) {
         display[i].classList.add('show');
