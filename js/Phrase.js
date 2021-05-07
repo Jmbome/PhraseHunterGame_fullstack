@@ -20,7 +20,6 @@ class Phrase {
             createli.innerHTML = selected;
 
             if (selected === ' ') {
-                createli.classList.add("hide");
                 createli.classList.add("space");
             } else {
                 createli.classList.add("hide");
@@ -50,13 +49,13 @@ checkLetter(letter){
 * @param (string) letter - Letter to display
 */
 showMatchedLetter(letter) {
-    const display=document.querySelectorAll('.phrase li');
-    for(let i=0;i<display.length;i++){
-        if(this.phrase.includes(letter)){
-            display[i].classList.remove('hide');
-            display[i].classList.add('show');
+    const display = document.querySelectorAll('.phrase, li');
+    console.log(display);
+        for (let i = 0; i < display.length; i ++) {
+        if (display[i].innerHTML === letter) {
+        display[i].classList.add('show');
         }
-    }
+    };
 
 };
 

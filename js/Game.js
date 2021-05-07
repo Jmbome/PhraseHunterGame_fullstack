@@ -100,7 +100,7 @@ gameOver(gameWon) {
 */
 handleInteraction(button) {
     button.disabled=true;
-    let choosenKey=this.activePhrase.checkLetter(button.textContent)
+    let choosenKey=this.activePhrase.checkLetter(button.textContent);
    
     if (choosenKey) {
         this.activePhrase.showMatchedLetter(button.textContent);
@@ -111,7 +111,7 @@ handleInteraction(button) {
     if (this.checkForWin()) {
         this.gameOver(true);
     
-} else {   
+} else if(!choosenKey) {   
     button.classList.add("wrong");
     this.removeLife();
 };
