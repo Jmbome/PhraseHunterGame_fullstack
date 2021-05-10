@@ -26,33 +26,33 @@ class Phrase {
         });
 
     };
-  
+
 
     /**
 * Checks if passed letter is in phrase
 * @param (string) letter - Letter to check
 */
-checkLetter(letter){
-    if (this.phrase.includes(letter)) {
-        return true;
+    checkLetter(letter) {
+        if (this.phrase.includes(letter)) {
+            return true;
         } else {
-        return false;
-        }
-};
-
-/**
-* Displays passed letter on screen after a match is found
-* @param (string) letter - Letter to display
-*/
-showMatchedLetter(letter) {
-    const display = document.querySelectorAll('.phrase, li');
-        for (let i = 0; i < display.length; i ++) {
-        if (display[i].innerHTML === letter) {
-        display[i].classList.add('show');
+            return false;
         }
     };
 
-};
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+        const display = document.querySelectorAll('.phrase, li');
+        for (let i = 0; i < display.length; i++) {
+            if (display[i].innerHTML === letter) {
+                display[i].classList.add('show');
+            }
+        };
+
+    };
 
 };
 
